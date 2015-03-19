@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+       default-autowire="byName">
+
+    <bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+    </bean>
+
+    <bean id="mqQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="rantz.marketing.queue"/>
+    </bean>
+
+    <bean id="mqTopic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg index="0" value="rantz.marketing.topic"/>
+    </bean>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="receiveTimeout" value="6000"/>
+    </bean>
+
+    <bean id="bookMessageListener" class="com.read.test.activemq.BookMessageListener">
+    </bean>
+
+</beans>
