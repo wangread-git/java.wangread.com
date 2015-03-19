@@ -29,6 +29,9 @@ public class InputStreamTest {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+
+
+
             try {
                 if (input != null) {
                     input.close();
