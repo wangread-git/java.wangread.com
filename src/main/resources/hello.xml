@@ -23,16 +23,16 @@
         <!--<property name="greeting" value="ÄãºÃ"/>-->
     <!--</bean>-->
 
-    <!--<bean id="behaviorService" class="com.read.test.spring.impl.BehaviorServiceImpl"/>-->
+    <bean id="behaviorService" class="com.read.test.spring.impl.BehaviorServiceImpl"/>
 
-    <!--<aop:config>-->
-        <!--<aop:aspect ref="behaviorService">-->
-            <!--<aop:pointcut id="behaviorPoincut" expression="execution(* *.sayGreeting())"/>-->
+    <aop:config>
+        <aop:aspect ref="behaviorService">
+            <aop:pointcut id="behaviorPoincut" expression="execution(* *.sayGreeting())"/>
 
-            <!--<aop:before method="shake" pointcut-ref="behaviorPoincut"/>-->
+            <aop:before method="shake" pointcut-ref="behaviorPoincut"/>
 
-            <!--<aop:after-returning method="swapCard" pointcut-ref="behaviorPoincut"/>-->
-        <!--</aop:aspect>-->
-    <!--</aop:config>-->
+            <aop:after-returning method="swapCard" pointcut-ref="behaviorPoincut"/>
+        </aop:aspect>
+    </aop:config>
 
 </beans>
