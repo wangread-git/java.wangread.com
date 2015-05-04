@@ -1,9 +1,6 @@
 package com.read.test.spring;
 
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 /**
  * Created with IntelliJ IDEA.
  * User: yfwangrui
@@ -15,9 +12,9 @@ public class Main {
 
     public static void main(String[] args) {
 //        BeanFactory factory = new XmlBeanFactory(new ClassPathResource("hello.xml"));
-        ApplicationContext context = new ClassPathXmlApplicationContext("hello.xml");
-        GreetingService greetingService = (GreetingService) context.getBean("greetingService");/*(GreetingService) factory.getBean("greetingService");*/
-        greetingService.sayGreeting();
+//        ApplicationContext context = new ClassPathXmlApplicationContext("hello.xml");
+//        GreetingService greetingService = (GreetingService) context.getBean("greetingService");/*(GreetingService) factory.getBean("greetingService");*/
+//        greetingService.sayGreeting();
 //        GreetingService service = new GreetingServiceImpl();
 //        Class clazz = service.getClass();
 //        try {
@@ -33,5 +30,12 @@ public class Main {
 //        } catch (IllegalAccessException e) {
 //            e.printStackTrace();
 //        }
+        String type = "java.util.HashMap";
+        try {
+            Class clazz = Class.forName(type);
+            System.out.println(clazz);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
