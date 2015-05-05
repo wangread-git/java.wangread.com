@@ -6,8 +6,16 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
         default-autowire="byName">
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:important.properties</value>
+            </list>
+        </property>
+    </bean>
+
     <bean id="greetingService" class="com.read.test.spring.impl.GreetingServiceImpl">
-        <property name="greeting" value="hello"/>
+        <property name="greeting" value="${hello}"/>
     </bean>
 
     <bean id="strings" class="java.util.ArrayList">
