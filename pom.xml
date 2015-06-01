@@ -49,6 +49,12 @@
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.4.5</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.netty</groupId>
+                    <artifactId>netty</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -81,6 +87,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
             <version>2.3.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.netty</groupId>
+                    <artifactId>netty</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -90,9 +102,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.netty</groupId>
+            <groupId>io.netty</groupId>
             <artifactId>netty</artifactId>
-            <version>3.2.5.Final</version>
+            <version>3.10.1.Final</version>
         </dependency>
 
         <dependency>
