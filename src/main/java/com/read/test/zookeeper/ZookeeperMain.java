@@ -17,7 +17,8 @@ public class ZookeeperMain {
             ZooKeeper zk = new ZooKeeper("localhost:2181,localhost:2182,localhost:2183", 50000, callback);
             callback.setZk(zk);
             callback.setzNode("/root");
-
+            //ClientCnxn里的sendThread和eventThread为守护线程，如果main方法结束的话，这俩线程也就结束了，
+            //这里加上while循环，防止这俩线程提前结束
             while (true) {}
         } catch (IOException e) {
             e.printStackTrace();

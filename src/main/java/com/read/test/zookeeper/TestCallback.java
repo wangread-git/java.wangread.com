@@ -43,6 +43,25 @@ public class TestCallback implements Watcher, AsyncCallback.StatCallback {
 
     public void process(WatchedEvent event) {
 //        zk.exists("/root", true, this, null);
-        System.out.println(event.getType());
+        switch (event.getType()) {
+            case None:
+                break;
+            case NodeDataChanged:
+                break;
+            default:
+                return;
+        }
+
+        byte b[];
+        try {
+            b = zk.getData(zNode, true, null);
+            System.out.println("get data:" + new String(b));
+        } catch (KeeperException e) {
+            // We don't need to worry about recovering now. The watch
+            // callbacks will kick off any exception handling
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
