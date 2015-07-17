@@ -13,14 +13,20 @@
 
     <bean id="printSchedulerJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="printSchedulerJobDetail"/>
-        <property name="cronExpression" value="0 0/2 * * * ?"/>
+        <property name="cronExpression" value="* * * * * ?"/>
     </bean>
 
-    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="triggers">
             <list>
                 <ref bean="printSchedulerJobTrigger"/>
             </list>
+        </property>
+        <property name="autoStartup" value="false"/>
+        <property name="quartzProperties">
+            <props>
+                <prop key="org.quartz.threadPool.threadCount">1</prop>
+            </props>
         </property>
     </bean>
 
