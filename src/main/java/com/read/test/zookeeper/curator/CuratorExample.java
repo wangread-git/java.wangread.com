@@ -42,7 +42,7 @@ public class CuratorExample {
 
             if (client.checkExists().forPath(curatorRoot) == null) {
 //                clear(client, curatorRoot);
-                create(client, curatorRoot);
+                create(client);
             }
 
             List<ChildData> childList = cache.getCurrentData();
@@ -69,7 +69,7 @@ public class CuratorExample {
         }
     }
 
-    private void create(CuratorFramework client, String path) {
+    private void create(CuratorFramework client) {
         try {
             client.create().forPath(curatorRoot, "root".getBytes());
             client.create().forPath(curatorRoot + "/child1", "child1".getBytes());
