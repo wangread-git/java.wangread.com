@@ -12,36 +12,21 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-7-7
- * Time: ÏÂÎç2:21
+ * Time: ï¿½ï¿½ï¿½ï¿½2:21
  * To change this template use File | Settings | File Templates.
  */
-public class GreetingServiceImpl implements GreetingService, InitializingBean, ApplicationContextAware{
+public class GreetingServiceImpl implements GreetingService{
 
     private String greeting;
-    private List<String> strings;
-    private ApplicationContext context;
 
     public void sayGreeting() {
 //        for (String s : strings) {
 //            System.out.println(s);
 //        }
-        System.out.println(context.isSingleton("greetingService"));
         System.out.println(greeting);
     }
 
     public void setGreeting(String greeting) {
         this.greeting = greeting;
-    }
-
-    public void setStrings(List<String> strings) {
-        this.strings = strings;
-    }
-
-    public void afterPropertiesSet() throws Exception {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.context = applicationContext;
     }
 }

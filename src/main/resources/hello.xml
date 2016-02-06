@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
@@ -28,12 +28,12 @@
     </bean>
 
     <!--<bean id="greetingService" class="com.read.test.spring.impl.GreetingServiceImpl" init-method="afterPropertiesSet">-->
-        <!--<property name="greeting" value="你好"/>-->
+        <!--<property name="greeting" value="浣犲ソ"/>-->
     <!--</bean>-->
 
     <bean id="behaviorService" class="com.read.test.spring.impl.BehaviorServiceImpl"/>
 
-    <aop:config>
+    <aop:config proxy-target-class="true">
         <aop:aspect ref="behaviorService">
             <aop:pointcut id="behaviorPoincut" expression="execution(* *.sayGreeting())"/>
 

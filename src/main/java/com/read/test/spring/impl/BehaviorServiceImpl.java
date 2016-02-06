@@ -8,7 +8,7 @@ import org.springframework.beans.factory.InitializingBean;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-7-7
- * Time: ÏÂÎç3:29
+ * Time: ä¸‹åˆ3:29
  * To change this template use File | Settings | File Templates.
  */
 public class BehaviorServiceImpl implements BehaviorService, BeanNameAware, InitializingBean {
@@ -16,11 +16,11 @@ public class BehaviorServiceImpl implements BehaviorService, BeanNameAware, Init
     String beanName;
 
     public void shake() {
-        System.out.println("ÎÕÊÖ");
+        System.out.println("æ¡æ‰‹");
     }
 
     public void swapCard() {
-        System.out.println("½»»»Ã÷ĞÅÆ¬");
+        System.out.println("äº¤æ¢æ˜ä¿¡ç‰‡");
     }
 
     public void setBeanName(String name) {
