@@ -4,12 +4,12 @@ package com.read.test.pattern.command;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-6-16
- * Time: 下午3:32
- * 命令接口
+ * Time: 涓嬪崍3:32
+ * 鍛戒护鎺ュ彛
  */
 public interface Command {
     /**
-     * 执行命令
+     * 鎵ц鍛戒护
      */
     public void execute();
 }

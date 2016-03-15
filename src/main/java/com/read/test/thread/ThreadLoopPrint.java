@@ -4,23 +4,23 @@ package com.read.test.thread;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-6-18
- * Time: ÏÂÎç8:17
+ * Time: ä¸‹åˆ8:17
  * To change this template use File | Settings | File Templates.
  */
 
 /**
- * ËøÂë£º¹«¹²Êı¾İÇø
- * ÂëÖµ£ºÂëÖµÎªA£¬±íÊ¾Ó¦¸ÃÓÉAÏß³ÌÀ´Ö´ĞĞ£¬B,CÏß³ÌµÈ´ı
- * ÂëÖµÎªB,CÍ¬Àí¡£
+ * é”ç ï¼šå…¬å…±æ•°æ®åŒº
+ * ç å€¼ï¼šç å€¼ä¸ºAï¼Œè¡¨ç¤ºåº”è¯¥ç”±Açº¿ç¨‹æ¥æ‰§è¡Œï¼ŒB,Cçº¿ç¨‹ç­‰å¾…
+ * ç å€¼ä¸ºB,CåŒç†ã€‚
  */
 class LockCode {
     /**
-     * µ±Ç°ËøÂëÂëÖµ£¬³õÊ¼ÂëÖµÎªA£¬±íÊ¾×î³õÓÉAÏß³ÌÔËĞĞ
+     * å½“å‰é”ç ç å€¼ï¼Œåˆå§‹ç å€¼ä¸ºAï¼Œè¡¨ç¤ºæœ€åˆç”±Açº¿ç¨‹è¿è¡Œ
      */
     private char code = 'A';
 
     /**
-     * µ¥ÀıÄ£Ê½
+     * å•ä¾‹æ¨¡å¼
      */
     private LockCode() {
     }
@@ -30,8 +30,8 @@ class LockCode {
     }
 
     /**
-     * Ñ­»·ÉèÖÃËøÂë
-     * Ã¿Ò»´Îµ÷ÓÃ£¬ËøÂë°´ÕÕA-B-C-A-...-µÄË³ĞòÑ­»·Íù¸´
+     * å¾ªç¯è®¾ç½®é”ç 
+     * æ¯ä¸€æ¬¡è°ƒç”¨ï¼Œé”ç æŒ‰ç…§A-B-C-A-...-çš„é¡ºåºå¾ªç¯å¾€å¤
      */
     public void setCode() {
         this.code = (char) (this.code + 1);
@@ -40,7 +40,7 @@ class LockCode {
     }
 
     /**
-     * µÃµ½ËøÂë
+     * å¾—åˆ°é”ç 
      */
     public char getCode() {
         return this.code;
@@ -48,15 +48,15 @@ class LockCode {
 }
 
 /**
- * Íê³É´òÓ¡¹¤×÷µÄÏß³ÌÀà
+ * å®Œæˆæ‰“å°å·¥ä½œçš„çº¿ç¨‹ç±»
  */
 class PrintRunnable implements Runnable {
     /**
-     * ĞèÒª´òÓ¡µÄ×Ö·û
+     * éœ€è¦æ‰“å°çš„å­—ç¬¦
      */
     private char character = '?';
     /**
-     * ¹«¹²ËøÂë
+     * å…¬å…±é”ç 
      */
     private final LockCode lockCode;
 
@@ -66,21 +66,21 @@ class PrintRunnable implements Runnable {
     }
 
     /**
-     * Ïß³ÌÖ´ĞĞ
+     * çº¿ç¨‹æ‰§è¡Œ
      */
     public void run() {
         for (int i = 0; i < 10; i++) {
-            synchronized (lockCode) {//Ïß³ÌÍ¬²½²Ù×÷ËøÂë
+            synchronized (lockCode) {//çº¿ç¨‹åŒæ­¥æ“ä½œé”ç 
                 try {
-                    //Èç¹ûµ±Ç°ÔËĞĞµÄÏß³Ì²¢²»µÈÓÚµ±Ç°ËøÂëµÄÂëÖµ£¬Ôò¸ÄÏß³ÌµÈ´ı
-                    //±ÈÈçµ±Ç°ÔËĞĞÏß³ÌÊÇA£¬µ«ÊÇÂëÖµÎªB£¬ÔòAÏß³ÌµÈ´ı¡£
+                    //å¦‚æœå½“å‰è¿è¡Œçš„çº¿ç¨‹å¹¶ä¸ç­‰äºå½“å‰é”ç çš„ç å€¼ï¼Œåˆ™æ”¹çº¿ç¨‹ç­‰å¾…
+                    //æ¯”å¦‚å½“å‰è¿è¡Œçº¿ç¨‹æ˜¯Aï¼Œä½†æ˜¯ç å€¼ä¸ºBï¼Œåˆ™Açº¿ç¨‹ç­‰å¾…ã€‚
                     while (lockCode.getCode() != this.character)
                         lockCode.wait();
-                    //ÂëÖµÆ¥Åä³É¹¦£¬´òÓ¡×Ö·û
+                    //ç å€¼åŒ¹é…æˆåŠŸï¼Œæ‰“å°å­—ç¬¦
                     System.out.print(this.character);
-                    //ÉèÖÃÂëÖµ£¬ÈÃÏÂÒ»¸öÏß³Ì¿ÉÒÔÔËĞĞ
+                    //è®¾ç½®ç å€¼ï¼Œè®©ä¸‹ä¸€ä¸ªçº¿ç¨‹å¯ä»¥è¿è¡Œ
                     lockCode.setCode();
-                    //ÈÃÆäËûËùÓĞµÈ´ıÏß³Ì¼¤»î
+                    //è®©å…¶ä»–æ‰€æœ‰ç­‰å¾…çº¿ç¨‹æ¿€æ´»
                     lockCode.notifyAll();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -92,12 +92,12 @@ class PrintRunnable implements Runnable {
 }
 
 /**
- * ²âÊÔ
+ * æµ‹è¯•
  */
 public class ThreadLoopPrint {
 
     public static void main(String[] args) {
-        LockCode lockCode = LockCode.newInstance();//¹«¹²ËøÂë
+        LockCode lockCode = LockCode.newInstance();//å…¬å…±é”ç 
         Thread ta = new Thread(new PrintRunnable('A', lockCode));
         Thread tb = new Thread(new PrintRunnable('B', lockCode));
         Thread tc = new Thread(new PrintRunnable('C', lockCode));

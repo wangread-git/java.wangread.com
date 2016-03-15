@@ -16,7 +16,7 @@ public class LockTest extends Thread {
     private final static String[] words = {"a", "b", "c", "d", "e", "f", "g", "h", "i",
             "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
 
-    private AtomicInteger i;   //这里不能用Integer，因为Integer是final的，相当于每个线程的i都是单独的，这样不能实现同步
+    private AtomicInteger i;   //杩欓噷涓嶈兘鐢↖nteger锛屽洜涓篒nteger鏄痜inal鐨勶紝鐩稿綋浜庢瘡涓嚎绋嬬殑i閮芥槸鍗曠嫭鐨勶紝杩欐牱涓嶈兘瀹炵幇鍚屾
 
     public LockTest(ReentrantLock lock, Condition condition, AtomicInteger i, int index) {
         this.lock = lock;

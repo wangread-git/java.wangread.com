@@ -14,8 +14,8 @@ public class TestMain {
 //        System.setProperties(prop);
 //        System.out.println(System.getProperty("zookeeper.clientCnxnSocket"));
 
-        while (true) {
-            String str = new String("abc");
-        }
+        String str = "sb,";
+        String[] s = str.split(",");
+        System.out.println(s.length);
     }
 }

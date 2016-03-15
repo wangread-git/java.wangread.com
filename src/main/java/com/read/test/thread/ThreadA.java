@@ -4,7 +4,7 @@ package com.read.test.thread;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-5-21
- * Time: 下午4:40
+ * Time: 涓嬪崍4:40
  * To change this template use File | Settings | File Templates.
  */
 public class ThreadA implements Runnable {
@@ -30,7 +30,7 @@ public class ThreadA implements Runnable {
                 System.out.print(name);
                 lock.next();
                 lock.notifyAll();
-                //此时所有线程都被唤醒，但是只有当前这个线程走完后面流程，释放了锁才能继续后面的工作
+                //姝ゆ椂鎵�鏈夌嚎绋嬮兘琚敜閱掞紝浣嗘槸鍙湁褰撳墠杩欎釜绾跨▼璧板畬鍚庨潰娴佺▼锛岄噴鏀句簡閿佹墠鑳界户缁悗闈㈢殑宸ヤ綔
             }
         }
     }

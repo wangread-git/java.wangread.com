@@ -4,7 +4,7 @@ package com.read.test.pattern.command;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-6-16
- * Time: ÏÂÎç3:40
+ * Time: ä¸‹åˆ3:40
  * To change this template use File | Settings | File Templates.
  */
 public class Main {

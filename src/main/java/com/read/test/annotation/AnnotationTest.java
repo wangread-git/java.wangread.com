@@ -7,10 +7,10 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-7-26
- * Time: ÏÂÎç3:21
+ * Time: ä¸‹åˆ3:21
  * To change this template use File | Settings | File Templates.
  */
-@Description("java×¢½â²âÊÔ")
+@Description("javaæ³¨è§£æµ‹è¯•")
 public class AnnotationTest {
 
     @Override
@@ -28,14 +28,14 @@ public class AnnotationTest {
         List<String> list = new ArrayList();
     }
 
-    @Name(originate = "Ãû×Ö£ºÍõÈñ", community = "¾©¶«")
+    @Name(originate = "åå­—ï¼šç‹é”", community = "äº¬ä¸œ")
     public String getName() {
         return "ha";
     }
 
-    @Name(originate = "Ãû×Ö£ºÀÏĞÏ", community = "ÀÖÊÓ")
+    @Name(originate = "åå­—ï¼šè€é‚¢", community = "ä¹è§†")
     public String getName2() {
-        return "¹¤×Ê±©»÷ÁË£¡";
+        return "å·¥èµ„æš´å‡»äº†ï¼";
     }
 
 }

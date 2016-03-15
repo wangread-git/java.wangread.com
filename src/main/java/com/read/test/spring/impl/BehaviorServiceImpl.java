@@ -1,6 +1,8 @@
 package com.read.test.spring.impl;
 
 import com.read.test.spring.BehaviorService;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -15,11 +17,12 @@ public class BehaviorServiceImpl implements BehaviorService, BeanNameAware, Init
 
     String beanName;
 
-    public void shake() {
+    public void shake(JoinPoint jp) {
+        jp.getTarget().getClass();
         System.out.println("握手");
     }
 
-    public void swapCard() {
+    public void swapCard(JoinPoint jp) {
         System.out.println("交换明信片");
     }
 

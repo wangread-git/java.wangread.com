@@ -8,7 +8,7 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-7-28
- * Time: ÉÏÎç11:48
+ * Time: ä¸‹åˆ11:48
  * book POJO
  */
 public class Book implements Serializable {

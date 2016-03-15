@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-6-18
- * Time: ÏÂÎç6:04
+ * Time: ä¸‹åˆ6:04
  * To change this template use File | Settings | File Templates.
  */
 public class ThreadC implements Runnable{

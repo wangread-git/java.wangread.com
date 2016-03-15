@@ -54,7 +54,7 @@ public class JedisTest {
 
         if (writePool != null) {
             ShardedJedis jedis = writePool.getResource();
-            jedis.set("test", "¹þ¹þ");
+            jedis.set("test", "å“ˆå“ˆ");
         }
         if (readPool != null) {
             ShardedJedis jedis = readPool.getResource();

@@ -12,12 +12,12 @@ public class CyclicBarrierTest {
         final CyclicBarrier barrier = new CyclicBarrier(4, new Runnable() {
             @Override
             public void run() {
-                System.out.println("ºÃÁË£¬´ó¼Ò¿ÉÒÔÈ¥³Ô·¹ÁË¡­¡­");
+                System.out.println("å¥½äº†ï¼Œå¤§å®¶å¯ä»¥å»åƒé¥­äº†â€¦â€¦");
             }
         });
 
-        System.out.println("Òª³Ô·¹£¬±ØĞëËùÓĞÈË¶¼µ½ÖÕµã£¬oK?");
-        System.out.println("²»·ÅÆú²»Å×Æú£¡");
+        System.out.println("è¦åƒé¥­ï¼Œå¿…é¡»æ‰€æœ‰äººéƒ½åˆ°ç»ˆç‚¹ï¼ŒoK?");
+        System.out.println("ä¸æ”¾å¼ƒä¸æŠ›å¼ƒï¼");
 
         for (int i = 0; i < 4; i++) {
             exec.execute(new Runnable() {
@@ -32,9 +32,9 @@ public class CyclicBarrierTest {
                         e1.printStackTrace();
                     }
                     System.out.println(Thread.currentThread().getName()
-                            + ":ÎÒµ½ÖÕµãÁË");
+                            + ":æˆ‘åˆ°ç»ˆç‚¹äº†");
                     try {
-                        //Õâ¸öµØ·½barrier»á×öcount--²Ù×÷£¬µ±count==0Ê±£¬¿ªÊ¼Ö´ĞĞ¹¹Ôì·½·¨ÖĞµÄÏß³Ì
+                        //è¿™ä¸ªåœ°æ–¹barrierä¼šåšcount--æ“ä½œï¼Œå½“count==0æ—¶ï¼Œå¼€å§‹æ‰§è¡Œæ„é€ æ–¹æ³•ä¸­çš„çº¿ç¨‹
                         barrier.await();
                     } catch (InterruptedException e) {
                         // TODO Auto-generated catch block
@@ -45,7 +45,7 @@ public class CyclicBarrierTest {
                     }
 
                     System.out.println(Thread.currentThread().getName()
-                            + ":ÖÕÓÚ¿ÉÒÔ³Ô·¹À²£¡");
+                            + ":ç»ˆäºå¯ä»¥åƒé¥­å•¦ï¼");
 
                 }
             });

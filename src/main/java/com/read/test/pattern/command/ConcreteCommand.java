@@ -4,8 +4,8 @@ package com.read.test.pattern.command;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-6-16
- * Time: 下午3:35
- * 具体命令
+ * Time: 涓嬪崍3:35
+ * 鍏蜂綋鍛戒护
  */
 public class ConcreteCommand implements Command {
 

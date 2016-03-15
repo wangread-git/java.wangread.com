@@ -4,8 +4,8 @@ package com.read.test.pattern.command;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-6-16
- * Time: ÏÂÎç3:38
- * µ÷ÓÃÕß
+ * Time: ä¸‹åˆ3:38
+ * è°ƒç”¨è€…
  */
 public class Involker {
 

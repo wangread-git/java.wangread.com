@@ -11,7 +11,7 @@ import java.io.IOException;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-8-26
- * Time: ÏÂÎç2:26
+ * Time: ä¸‹åˆ2:26
  * To change this template use File | Settings | File Templates.
  */
 public class HessianTest {

@@ -4,7 +4,7 @@ import java.util.*;
 
 class Grocery {
     private static final int SIZE = 10000;
-    // ÊôĞÔdÊ¹µÃÃ¿¸öGrocery¶ÔÏóÕ¼ÓÃ½Ï¶àÄÚ´æ£¬ÓĞ80K×óÓÒ
+    // å±æ€§dä½¿å¾—æ¯ä¸ªGroceryå¯¹è±¡å ç”¨è¾ƒå¤šå†…å­˜ï¼Œæœ‰80Kå·¦å³
     private double[] d = new double[SIZE];
     private String id;
 
@@ -26,14 +26,14 @@ public class References {
 
     public static void checkQueue() {
         Reference inq = rq.poll();
-        // ´Ó¶ÓÁĞÖĞÈ¡³öÒ»¸öÒıÓÃ
+        // ä»é˜Ÿåˆ—ä¸­å–å‡ºä¸€ä¸ªå¼•ç”¨
         if (inq != null)
             System.out.println("In queue: " + inq + " : " + inq.get());
     }
 
     public static void main(String[] args) {
         final int size = 10;
-        // ´´½¨10¸öGrocery¶ÔÏóÒÔ¼°10¸öÈíÒıÓÃ
+        // åˆ›å»º10ä¸ªGroceryå¯¹è±¡ä»¥åŠ10ä¸ªè½¯å¼•ç”¨
         Set sa = new HashSet();
         for (int i = 0; i < size; i++) {
             SoftReference ref = new SoftReference(new Grocery("soft" + i), rq);
@@ -43,7 +43,7 @@ public class References {
         System.gc();
         checkQueue();
         System.out.println("---------------------------------------------------");
-        // ´´½¨10¸öGrocery¶ÔÏóÒÔ¼°10¸öÈõÒıÓÃ
+        // åˆ›å»º10ä¸ªGroceryå¯¹è±¡ä»¥åŠ10ä¸ªå¼±å¼•ç”¨
         Set wa = new HashSet();
         for (int i = 0; i < size; i++) {
             WeakReference ref = new WeakReference(new Grocery ("weak " + i), rq);
@@ -53,7 +53,7 @@ public class References {
         System.gc();
         checkQueue();
         System.out.println("---------------------------------------------------");
-        // ´´½¨10¸öGrocery¶ÔÏóÒÔ¼°10¸öĞéÒıÓÃ
+        // åˆ›å»º10ä¸ªGroceryå¯¹è±¡ä»¥åŠ10ä¸ªè™šå¼•ç”¨
         Set pa = new HashSet();
         for (int i = 0; i < size; i++) {
             PhantomReference ref =new PhantomReference(new Grocery("Phantom " + i), rq);

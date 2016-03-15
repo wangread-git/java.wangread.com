@@ -6,11 +6,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-5-21
- * Time: ÏÂÎç5:13
+ * Time: ä¸‹åˆ5:13
  * To change this template use File | Settings | File Templates.
  */
 public class ThreadB implements Runnable {
-//    private PrintThread printThread;
+    //    private PrintThread printThread;
     private AtomicInteger index;
 
     public ThreadB(AtomicInteger index) {

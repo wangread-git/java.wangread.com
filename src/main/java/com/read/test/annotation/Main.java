@@ -7,7 +7,7 @@ import org.apache.commons.logging.LogFactory;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-7-26
- * Time: œ¬ŒÁ3:23
+ * Time: ‰∏ãÂçà3:23
  * To change this template use File | Settings | File Templates.
  */
 public class Main {
@@ -29,7 +29,7 @@ public class Main {
 //            boolean flag = clazz.isAnnotationPresent(Description.class);
 //            if(flag) {
 //                Description description = (Description) clazz.getAnnotation(Description.class);
-//                System.out.println("description£∫" + description.value());
+//                System.out.println("descriptionÔøΩÔøΩ" + description.value());
 //            }
 //
 //            Set<Method> methodSet = new HashSet<Method>();

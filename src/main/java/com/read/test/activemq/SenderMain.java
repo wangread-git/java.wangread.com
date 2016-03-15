@@ -20,7 +20,7 @@ public class SenderMain {
         test.setJmsTemplate(jmsTemplate);
 //        Book book = new Book();
 //        book.setId(2);
-//        book.setName("java并发编程实战");
+//        book.setName("java骞跺彂缂栫▼瀹炴垬");
 //        test.sendMessage(book);
     }
 }

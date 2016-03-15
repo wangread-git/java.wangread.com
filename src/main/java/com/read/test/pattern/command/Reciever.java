@@ -4,16 +4,16 @@ package com.read.test.pattern.command;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-6-16
- * Time: ÏÂÎç3:36
- * ½ÓÊÜÕß
+ * Time: ä¸‹åˆ3:36
+ * æ¥å—è€…
  */
 public class Reciever {
 
     /**
-     * ¶¯×÷
+     * åŠ¨ä½œ
      *
      */
     public void action() {
-        System.out.print("ÃüÁîÒÑ´¦Àí");
+        System.out.print("å‘½ä»¤å·²å¤„ç†");
     }
 }

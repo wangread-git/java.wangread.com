@@ -14,11 +14,10 @@ public class ZookeeperMain {
         try {
             TestCallback callback = new TestCallback();
 
-            ZooKeeper zk = new ZooKeeper("localhost:2181,localhost:2182,localhost:2183", 50000, callback);
+            ZooKeeper zk = new ZooKeeper("192.168.23.3:2181,192.168.23.3:2182,192.168.23.3:2183", 500000, callback);
             callback.setZk(zk);
             callback.setzNode("/root");
-            //ClientCnxn里的sendThread和eventThread为守护线程，如果main方法结束的话，这俩线程也就结束了，
-            //这里加上while循环，防止这俩线程提前结束
+            zk.getData("/root", callback, callback, null);
             while (true) {}
         } catch (IOException e) {
             e.printStackTrace();

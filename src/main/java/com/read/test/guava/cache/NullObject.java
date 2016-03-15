@@ -4,8 +4,8 @@ package com.read.test.guava.cache;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-7-28
- * Time: ÏÂÎç12:43
- * ¿Õ¶ÔÏó
+ * Time: ä¸‹åˆ12:43
+ * ç©ºå¯¹è±¡
  */
 public enum NullObject {
     NULL_OBJECT

@@ -10,7 +10,7 @@ import java.lang.reflect.InvocationTargetException;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-8-26
- * Time: œ¬ŒÁ2:30
+ * Time: ‰∏ãÂçà2:30
  * To change this template use File | Settings | File Templates.
  */
 public class Main {
@@ -19,11 +19,11 @@ public class Main {
 //        for (int i = 0; i < 10; i++) {
 //            Book book = new Book();
 //            book.setId(1);
-//            book.setName("√˚≥∆" + i);
+//            book.setName("ÂêçÁß∞" + i);
 //            bookList.add(book);
 //        }
 //        byte[] bytes = HessianTest.serialize(bookList);
-//        bookList.get(0).setName("π˛π˛");
+//        bookList.get(0).setName("ÂìàÂìà");
 //        List<Book> books = (List<Book>) HessianTest.deserialize(bytes);
 //        for (Book book : books) {
 //            System.out.println(book.toString());

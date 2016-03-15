@@ -4,7 +4,7 @@ package com.read.test.thread;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-5-21
- * Time: ÏÂÎç4:16
+ * Time: ä¸‹åˆ4:16
  * To change this template use File | Settings | File Templates.
  */
 public class PrintThread {

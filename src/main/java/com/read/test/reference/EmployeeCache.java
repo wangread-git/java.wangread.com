@@ -5,12 +5,12 @@ import java.lang.ref.SoftReference;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class EmployeeCache {
-    static private EmployeeCache cache;// Ò»¸öCacheÊµÀı
-    private ConcurrentHashMap employeeRefs;// ÓÃÓÚCacheÄÚÈİµÄ´æ´¢
-    private ReferenceQueue q;// À¬»øReferenceµÄ¶ÓÁĞ
+    static private EmployeeCache cache;// ä¸€ä¸ªCacheå®ä¾‹
+    private ConcurrentHashMap employeeRefs;// ç”¨äºCacheå†…å®¹çš„å­˜å‚¨
+    private ReferenceQueue q;// åƒåœ¾Referenceçš„é˜Ÿåˆ—
 
-    // ¼Ì³ĞSoftReference£¬Ê¹µÃÃ¿Ò»¸öÊµÀı¶¼¾ßÓĞ¿ÉÊ¶±ğµÄ±êÊ¶¡£
-    // ²¢ÇÒ¸Ã±êÊ¶ÓëÆäÔÚHashMapÄÚµÄkeyÏàÍ¬¡£
+    // ç»§æ‰¿SoftReferenceï¼Œä½¿å¾—æ¯ä¸€ä¸ªå®ä¾‹éƒ½å…·æœ‰å¯è¯†åˆ«çš„æ ‡è¯†ã€‚
+    // å¹¶ä¸”è¯¥æ ‡è¯†ä¸å…¶åœ¨HashMapå†…çš„keyç›¸åŒã€‚
     private class EmployeeRef extends SoftReference {
         private String _key = "";
 
@@ -20,13 +20,13 @@ public class EmployeeCache {
         }
     }
 
-    // ¹¹½¨Ò»¸ö»º´æÆ÷ÊµÀı
+    // æ„å»ºä¸€ä¸ªç¼“å­˜å™¨å®ä¾‹
     private EmployeeCache() {
         employeeRefs = new ConcurrentHashMap();
         q = new ReferenceQueue();
     }
 
-    // È¡µÃ»º´æÆ÷ÊµÀı
+    // å–å¾—ç¼“å­˜å™¨å®ä¾‹
     public static EmployeeCache getInstance() {
         if (cache == null) {
             cache = new EmployeeCache();
@@ -34,23 +34,23 @@ public class EmployeeCache {
         return cache;
     }
 
-    // ÒÔÈíÒıÓÃµÄ·½Ê½¶ÔÒ»¸öEmployee¶ÔÏóµÄÊµÀı½øĞĞÒıÓÃ²¢±£´æ¸ÃÒıÓÃ
+    // ä»¥è½¯å¼•ç”¨çš„æ–¹å¼å¯¹ä¸€ä¸ªEmployeeå¯¹è±¡çš„å®ä¾‹è¿›è¡Œå¼•ç”¨å¹¶ä¿å­˜è¯¥å¼•ç”¨
     private void cacheEmployee(Employee em) {
-        cleanCache();// Çå³ıÀ¬»øÒıÓÃ
+        cleanCache();// æ¸…é™¤åƒåœ¾å¼•ç”¨
         EmployeeRef ref = new EmployeeRef(em, q);
         employeeRefs.put(em.getID(), ref);
     }
 
-    // ÒÀ¾İËùÖ¸¶¨µÄIDºÅ£¬ÖØĞÂ»ñÈ¡ÏàÓ¦Employee¶ÔÏóµÄÊµÀı
+    // ä¾æ®æ‰€æŒ‡å®šçš„IDå·ï¼Œé‡æ–°è·å–ç›¸åº”Employeeå¯¹è±¡çš„å®ä¾‹
     public Employee getEmployee(String ID) {
         Employee em = null;
-        // »º´æÖĞÊÇ·ñÓĞ¸ÃEmployeeÊµÀıµÄÈíÒıÓÃ£¬Èç¹ûÓĞ£¬´ÓÈíÒıÓÃÖĞÈ¡µÃ¡£
+        // ç¼“å­˜ä¸­æ˜¯å¦æœ‰è¯¥Employeeå®ä¾‹çš„è½¯å¼•ç”¨ï¼Œå¦‚æœæœ‰ï¼Œä»è½¯å¼•ç”¨ä¸­å–å¾—ã€‚
         if (employeeRefs.containsKey(ID)) {
             EmployeeRef ref = (EmployeeRef) employeeRefs.get(ID);
             em = (Employee) ref.get();
         }
-        // Èç¹ûÃ»ÓĞÈíÒıÓÃ£¬»òÕß´ÓÈíÒıÓÃÖĞµÃµ½µÄÊµÀıÊÇnull£¬ÖØĞÂ¹¹½¨Ò»¸öÊµÀı£¬
-        // ²¢±£´æ¶ÔÕâ¸öĞÂ½¨ÊµÀıµÄÈíÒıÓÃ
+        // å¦‚æœæ²¡æœ‰è½¯å¼•ç”¨ï¼Œæˆ–è€…ä»è½¯å¼•ç”¨ä¸­å¾—åˆ°çš„å®ä¾‹æ˜¯nullï¼Œé‡æ–°æ„å»ºä¸€ä¸ªå®ä¾‹ï¼Œ
+        // å¹¶ä¿å­˜å¯¹è¿™ä¸ªæ–°å»ºå®ä¾‹çš„è½¯å¼•ç”¨
         if (em == null) {
             em = new Employee(ID);
             System.out.println("Retrieve From EmployeeInfoCenter. ID=" + ID);
@@ -59,7 +59,7 @@ public class EmployeeCache {
         return em;
     }
 
-    // Çå³ıÄÇĞ©ËùÈíÒıÓÃµÄEmployee¶ÔÏóÒÑ¾­±»»ØÊÕµÄEmployeeRef¶ÔÏó
+    // æ¸…é™¤é‚£äº›æ‰€è½¯å¼•ç”¨çš„Employeeå¯¹è±¡å·²ç»è¢«å›æ”¶çš„EmployeeRefå¯¹è±¡
     private void cleanCache() {
         EmployeeRef ref;
         while ((ref = (EmployeeRef) q.poll()) != null) {
@@ -67,7 +67,7 @@ public class EmployeeCache {
         }
     }
 
-    // Çå³ıCacheÄÚµÄÈ«²¿ÄÚÈİ
+    // æ¸…é™¤Cacheå†…çš„å…¨éƒ¨å†…å®¹
     public void clearCache() {
         cleanCache();
         employeeRefs.clear();
@@ -76,24 +76,24 @@ public class EmployeeCache {
     }
 
     class Employee {
-        private String id;// ¹ÍÔ±µÄ±êÊ¶ºÅÂë
-        private String name;// ¹ÍÔ±ĞÕÃû
-        private String department;// ¸Ã¹ÍÔ±ËùÔÚ²¿ÃÅ
-        private String Phone;// ¸Ã¹ÍÔ±ÁªÏµµç»°
-        private int salary;// ¸Ã¹ÍÔ±Ğ½×Ê
-        private String origin;// ¸Ã¹ÍÔ±ĞÅÏ¢µÄÀ´Ô´
+        private String id;// é›‡å‘˜çš„æ ‡è¯†å·ç 
+        private String name;// é›‡å‘˜å§“å
+        private String department;// è¯¥é›‡å‘˜æ‰€åœ¨éƒ¨é—¨
+        private String Phone;// è¯¥é›‡å‘˜è”ç³»ç”µè¯
+        private int salary;// è¯¥é›‡å‘˜è–ªèµ„
+        private String origin;// è¯¥é›‡å‘˜ä¿¡æ¯çš„æ¥æº
 
-        // ¹¹Ôì·½·¨
+        // æ„é€ æ–¹æ³•
         public Employee(String id) {
             this.id = id;
             getDataFromlnfoCenter();
         }
 
-        // µ½Êı¾İ¿âÖĞÈ¡µÃ¹ÍÔ±ĞÅÏ¢
+        // åˆ°æ•°æ®åº“ä¸­å–å¾—é›‡å‘˜ä¿¡æ¯
         private void getDataFromlnfoCenter() {
-            // ºÍÊı¾İ¿â½¨Á¢Á¬½Ó¾®²éÑ¯¸Ã¹ÍÔ±µÄĞÅÏ¢£¬½«²éÑ¯½á¹û¸³Öµ
-            // ¸øname£¬department£¬plone£¬salaryµÈ±äÁ¿
-            // Í¬Ê±½«origin¸³ÖµÎª"From DataBase"
+            // å’Œæ•°æ®åº“å»ºç«‹è¿æ¥äº•æŸ¥è¯¢è¯¥é›‡å‘˜çš„ä¿¡æ¯ï¼Œå°†æŸ¥è¯¢ç»“æœèµ‹å€¼
+            // ç»™nameï¼Œdepartmentï¼Œploneï¼Œsalaryç­‰å˜é‡
+            // åŒæ—¶å°†originèµ‹å€¼ä¸º"From DataBase"
         }
 
         public String getID() {

@@ -13,8 +13,8 @@ import java.util.concurrent.ExecutionException;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-7-28
- * Time: ÉÏÎç11:39
- * guava cache²âÊÔ
+ * Time: ä¸Šåˆ11:39
+ * guava cacheæµ‹è¯•
  */
 public class CacheTest {
     private static Cache<String, Object> cache = CacheBuilder.newBuilder().maximumSize(1000).build();

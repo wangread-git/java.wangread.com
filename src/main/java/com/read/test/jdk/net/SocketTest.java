@@ -14,11 +14,13 @@ public class SocketTest {
     public void serverTest() {
         ServerSocket server = null;
         try {
-            server = new ServerSocket(9000);
-
+            server = new ServerSocket();
+            server.bind(new InetSocketAddress("localhost", 9000));
+            System.out.println(server.getInetAddress());
             Socket socket = null;
             try {
                 socket = server.accept();
+                System.out.println(socket.getInetAddress());
                 InputStream in = socket.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                 String line;

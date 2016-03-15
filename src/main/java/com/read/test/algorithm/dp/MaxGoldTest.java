@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created by yfwangrui on 2015/6/10.
  * <p/>
- * ÓÐn¸ö½ð¿ó£¬m¸öÈË£¬Ã¿×ù½ð¿ó¿ÉÒÔ¿ª²Égold[i]µÄ½ð×Ó£¬ÐèÒªpeople[i]¸öÈË£¬ÇóÓÐpeopleNum¸öÈËÊ±£¬×î¶à¿ÉÒÔ¿ª²É¶àÉÙ½ð¿ó
+ * æœ‰nä¸ªé‡‘çŸ¿ï¼Œmä¸ªäººï¼Œæ¯åº§é‡‘çŸ¿å¯ä»¥å¼€é‡‡gold[i]çš„é‡‘å­ï¼Œéœ€è¦people[i]ä¸ªäººï¼Œæ±‚æœ‰peopleNumä¸ªäººæ—¶ï¼Œæœ€å¤šå¯ä»¥å¼€é‡‡å¤šå°‘é‡‘çŸ¿
  */
 public class MaxGoldTest {
     private int[] gold = {8, 9, 10, 7, 6};
@@ -28,18 +28,18 @@ public class MaxGoldTest {
     private int solution1(int p, int i) {
         String key = p + "-" + i;
         int goldNum;
-        //¼õÉÙ¼ÆËã´ÎÊý
+        //å‡å°‘è®¡ç®—æ¬¡æ•°
         if (cache.get(key) != null) {
             goldNum = cache.get(key);
-        } else if (i == 0) {    //±ß½ç
+        } else if (i == 0) {    //è¾¹ç•Œ
             if (p >= people[i]) {
                 goldNum = gold[i];
             } else {
                 goldNum = 0;
             }
         } else if (p >= people[i]) {
-            int result1 = solution1(p, i - 1); //²»¿ª²É±¾¿ó
-            int result2 = solution1(p - people[i], i - 1) + gold[i];  //¿ª²É±¾¿ó
+            int result1 = solution1(p, i - 1); //ä¸å¼€é‡‡æœ¬çŸ¿
+            int result2 = solution1(p - people[i], i - 1) + gold[i];  //å¼€é‡‡æœ¬çŸ¿
             if (result1 >= result2) {
                 goldNum = result1;
             } else {

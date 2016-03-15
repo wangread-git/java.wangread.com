@@ -12,7 +12,7 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-7-7
- * Time: ����2:21
+ * Time: 下午2:21
  * To change this template use File | Settings | File Templates.
  */
 public class GreetingServiceImpl implements GreetingService{

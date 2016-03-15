@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-7-7
- * Time: ����2:22
+ * Time: 下午2:22
  * To change this template use File | Settings | File Templates.
  */
 public class Main {

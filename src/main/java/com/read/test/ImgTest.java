@@ -4,7 +4,7 @@ package com.read.test;
  * Created with IntelliJ IDEA.
  * User: yfwangrui
  * Date: 14-1-6
- * Time: ÏÂÎç3:56
+ * Time: ä¸‹åˆ3:56
  * To change this template use File | Settings | File Templates.
  */
 public class ImgTest {

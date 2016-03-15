@@ -84,7 +84,7 @@ public class NIOTest {
         try {
             ssc = ServerSocketChannel.open();
             ssc.socket().bind(new InetSocketAddress(8000));
-            //ServerSocketChannel设置为非阻塞之后，如果当前没有连接到达，accept会直接返回null
+            //ServerSocketChannel璁剧疆涓洪潪闃诲涔嬪悗锛屽鏋滃綋鍓嶆病鏈夎繛鎺ュ埌杈撅紝accept浼氱洿鎺ヨ繑鍥瀗ull
             ssc.configureBlocking(false);
             while (true) {
                 SocketChannel sc = ssc.accept();
