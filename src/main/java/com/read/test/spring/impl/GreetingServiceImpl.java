@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,6 +25,10 @@ public class GreetingServiceImpl implements GreetingService{
 //            System.out.println(s);
 //        }
         System.out.println(greeting);
+    }
+
+    public void test(Map<String, List<String>> map) {
+        System.out.println(map.get("name"));
     }
 
     public void setGreeting(String greeting) {

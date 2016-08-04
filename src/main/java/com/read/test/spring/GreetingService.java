@@ -1,5 +1,8 @@
 package com.read.test.spring;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created with IntelliJ IDEA.
  * User: yfwangrui
@@ -9,4 +12,6 @@ package com.read.test.spring;
  */
 public interface GreetingService {
     public void sayGreeting();
+
+    public void test(Map<String, List<String>> map);
 }
