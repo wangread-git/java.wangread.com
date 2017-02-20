@@ -1,23 +1,15 @@
 package com.read.test;
 
-import com.alibaba.fastjson.JSON;
-import org.apache.commons.lang.time.DateUtils;
 import org.junit.Test;
-
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by yfwangrui on 2014/12/10.
  */
 public class TestMain {
+
+    private final static Logger LOG = LoggerFactory.getLogger(TestMain.class);
 
     @Test
     public void test() {
@@ -46,5 +38,22 @@ public class TestMain {
 //        } catch (UnsupportedEncodingException e) {
 //            e.printStackTrace();
 //        }
+//        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
+//        ThreadInfo[] threadInfos = threadMXBean.dumpAllThreads(false, false);
+//        ThreadInfo mainThread = null;
+//
+//        for (ThreadInfo threadInfo : threadInfos) {
+//            if ("main".equals(threadInfo.getThreadName())) {
+//                mainThread = threadInfo;
+//            }
+//        }
+//
+//        if (mainThread != null) {
+//            StackTraceElement[] elements = mainThread.getStackTrace();
+//            for (StackTraceElement element : elements) {
+//                System.out.println(element.toString());
+//            }
+//        }
+        LOG.error("123");
     }
 }
