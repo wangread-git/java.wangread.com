@@ -27,15 +27,13 @@ public class CglibTest {
         enhancer.setClassLoader(this.getClass().getClassLoader());
         enhancer.setSuperclass(BaseClassImpl.class);
         enhancer.setInterceptDuringConstruction(false);
-        enhancer.setCallback(new MethodInterceptor() {
-            public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
-                System.out.println("start...");
-                try {
-                    //这里要注意，如果是用obj来调用的话需要用invokeSuper方法
-                    return proxy.invoke(baseClass, args);
-                } finally {
-                    System.out.println("end...");
-                }
+        enhancer.setCallback((MethodInterceptor) (obj, method, args, proxy) -> {
+            System.out.println("start...");
+            try {
+                //这里要注意，如果是用obj来调用的话需要用invokeSuper方法
+                return proxy.invoke(baseClass, args);
+            } finally {
+                System.out.println("end...");
             }
         });
         BaseClassImpl proxy = (BaseClassImpl) enhancer.create();
