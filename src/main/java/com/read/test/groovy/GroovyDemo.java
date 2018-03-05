@@ -1,8 +1,12 @@
 package com.read.test.groovy;
 
+import com.read.test.velocity.VelocityUtils;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 import groovy.lang.Script;
+import org.apache.commons.lang.StringUtils;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.runtime.parser.ParseException;
 import org.junit.Test;
 
 /**
@@ -29,9 +33,44 @@ public class GroovyDemo {
         System.out.println(obj3.getClass());
         System.out.println(obj3);
 
-        Script script = GroovyScriptHelper.getInstance(scriptText, binding, true);
+        Script script = GroovyScriptHelper.getInstance(scriptText, binding);
         Object obj4 = script.run();
         System.out.println(obj4.getClass());
         System.out.println(obj4);
+    }
+
+    @Test
+    public void testCompare() {
+        Binding binding = new Binding();
+        binding.setVariable("name", "zhangsan");
+        String scriptText = "import org.apache.commons.lang.StringUtils; return StringUtils.isEmpty(name)";
+        Script script = GroovyScriptHelper.getInstance(scriptText, binding);
+//        script.run();
+        long scriptStart = System.currentTimeMillis();
+        for (int i = 0; i < 50000; i++) {
+            script.run();
+        }
+        long scriptEnd = System.currentTimeMillis();
+        System.out.println("Groovy Script : " + (scriptEnd - scriptStart));
+
+        VelocityContext context = new VelocityContext();
+        context.put("StringUtils", StringUtils.class);
+        context.put("name", "zhangsan");
+        String str = "$StringUtils.isEmpty($name)";
+        try {
+            VelocityUtils.merge(str, context);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        long velocityStart = System.currentTimeMillis();
+        for (int i = 0; i < 50000; i++) {
+            try {
+                VelocityUtils.merge(str, context);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        long velocityEnd = System.currentTimeMillis();
+        System.out.println("Velocity : " + (velocityEnd - velocityStart));
     }
 }
