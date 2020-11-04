@@ -24,11 +24,14 @@ public class LevelControlFilter extends AbstractFilter {
         return new LevelControlFilter();
     }
 
+    //Logger或Appender内配置的filter，重写这个方法
     @Override
     public Result filter(LogEvent event) {
+        LOGGER.error("public Result filter(LogEvent event)");
         return super.filter(event);
     }
 
+    //全局配置的filter，重写以下方法
     @Override
     public Result filter(Logger logger, Level level, Marker marker, Message msg, Throwable t) {
         return super.filter(logger, level, marker, msg, t);
@@ -41,7 +44,6 @@ public class LevelControlFilter extends AbstractFilter {
 
     @Override
     public Result filter(Logger logger, Level level, Marker marker, String msg, Object... params) {
-        System.out.println("################################");
         LOGGER.info("###############################");
         return super.filter(logger, level, marker, msg, params);
     }

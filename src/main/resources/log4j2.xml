@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration packages="com.read.test.log4j2">
+<Configuration packages="com.read.test">
     <Appenders>
         <Console name="Console">
             <PatternLayout pattern="[%7r] %6p - %30.30c - %m \n"/>
         </Console>
-        <File name="File" fileName="/log/test.log">
-            <PatternLayout>
-                <pattern>%d [%7r] %6p - %30.30c - %m \n</pattern>
-            </PatternLayout>
-        </File>
-        <RollingFile name="RollingFile" fileName="/log/tests.log"
-                     filePattern="/log/tests.%d{yyyy-MM-dd}.log">
+<!--        <File name="File" fileName="/Users/yfwangrui/log/test.log">-->
+<!--            <PatternLayout>-->
+<!--                <pattern>%d [%7r] %6p - %30.30c - %m \n</pattern>-->
+<!--            </PatternLayout>-->
+<!--        </File>-->
+        <RollingFile name="RollingFile" fileName="/Users/yfwangrui/log/tests.log"
+                     filePattern="/Users/yfwangrui/log/tests.%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
             <TimeBasedTriggeringPolicy interval="1"/>
         </RollingFile>
@@ -20,8 +20,8 @@
             <LevelControlFilter/>
             <AppenderRef ref="RollingFile"/>
         </logger>
-        <Root level="DEBUG">
-            <AppenderRef ref="Console"/>
-        </Root>
+<!--        <Root level="DEBUG">-->
+<!--            <AppenderRef ref="Console"/>-->
+<!--        </Root>-->
     </Loggers>
 </Configuration>
